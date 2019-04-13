@@ -1,24 +1,18 @@
 {
 	"name": "flexilearning-project",
 	"version": "1.0.0",
-	"description": "",
+	"description": "App for the Fleaxilearning Centres of Glasgow Kelvin College",
 	"main": "index.js",
 	"scripts": {
 		"start": "concurrently \"cd server && node server.js\" \"cd client && npm start\"",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/panditita/flexilearning-project.git"
-	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/panditita/flexilearning-project/issues"
-	},
-	"homepage": "https://github.com/panditita/flexilearning-project#readme",
 	"dependencies": {
-		"concurrently": "^4.1.0"
+		"@material-ui/core": "^4.0.0-alpha.7",
+		"concurrently": "^4.1.0",
+		"material-ui": "^0.20.2"
 	}
 }
