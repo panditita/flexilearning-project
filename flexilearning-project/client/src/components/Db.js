@@ -67,7 +67,7 @@ class App extends Component {
 	deleteFromDB = (idTodelete) => {
 		let objIdToDelete = null;
 		this.state.data.forEach((dat) => {
-			if (dat.id == idTodelete) {
+			if (dat.id === idTodelete) {
 				objIdToDelete = dat._id;
 			}
 		});
@@ -84,7 +84,7 @@ class App extends Component {
 	updateDB = (idToUpdate, updateToApply) => {
 		let objIdToUpdate = null;
 		this.state.data.forEach((dat) => {
-			if (dat.id == idToUpdate) {
+			if (dat.id === idToUpdate) {
 				objIdToUpdate = dat._id;
 			}
 		});
@@ -119,7 +119,7 @@ class App extends Component {
 					<input
 						type="text"
 						onChange={(e) => this.setState({ message: e.target.value })}
-						placeholder="add something in the database"
+						placeholder="add record"
 						style={{ width: '200px' }}
 					/>
 					<button onClick={() => this.putDataToDB(this.state.message)}>ADD</button>
@@ -129,7 +129,7 @@ class App extends Component {
 						type="text"
 						style={{ width: '200px' }}
 						onChange={(e) => this.setState({ idToDelete: e.target.value })}
-						placeholder="put id of item to delete here"
+						placeholder="delete record"
 					/>
 					<button onClick={() => this.deleteFromDB(this.state.idToDelete)}>DELETE</button>
 				</div>
@@ -138,13 +138,13 @@ class App extends Component {
 						type="text"
 						style={{ width: '200px' }}
 						onChange={(e) => this.setState({ idToUpdate: e.target.value })}
-						placeholder="id of item to update here"
+						placeholder="Record number"
 					/>
 					<input
 						type="text"
 						style={{ width: '200px' }}
 						onChange={(e) => this.setState({ updateToApply: e.target.value })}
-						placeholder="put new value of the item here"
+						placeholder="Write the updated info here"
 					/>
 					<button onClick={() => this.updateDB(this.state.idToUpdate, this.state.updateToApply)}>
 						UPDATE
