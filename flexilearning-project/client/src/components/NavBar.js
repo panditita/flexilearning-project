@@ -6,6 +6,8 @@ import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
 import { withStyles } from '@material-ui/core/styles';
 import MenuList from './MenuList';
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
 
 const drawerWidth = 240;
 
@@ -54,17 +56,21 @@ class NavBar extends React.Component {
 		document.querySelector('.NavBar-toolbar-5').style.display = 'none';
 	}
 
+	changeOnClickState(nav) {
+		this.setState({ handleClick: !this.state.handleClick });
+	}
 	render() {
 		const { classes, theme } = this.props;
 
 		const drawer = (
 			<div>
-				""
-				<img
-					src="https://www.nedworks.net/wp-content/uploads/2018/01/Glasgow-Kelvin-College.jpg"
-					alt="Logo for Glasgow Kelvin College"
-				/>
-				<div className={classes.toolbar} />
+				<Link component={RouterLink} to="/">
+					<img
+						src="https://www.nedworks.net/wp-content/uploads/2018/01/Glasgow-Kelvin-College.jpg"
+						alt="Logo for Glasgow Kelvin College"
+					/>
+					<div className={classes.toolbar} />
+				</Link>
 				<List>
 					<MenuList />
 				</List>

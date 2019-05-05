@@ -6,13 +6,13 @@ import About from './components/About';
 import Campus from './components/Campus';
 // import Courses from './components/Courses';
 // import Contact from './components/Contact';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 const routing = (
 	<Router>
 		<div>
-			<Route exact="/" component={App} />
+			<Route path="/" component={App} />
 			<Route path="/student-login" component={Login} />
 			<Route path="/about-us" component={About} />
 			<Route path="/campus" component={Campus} />

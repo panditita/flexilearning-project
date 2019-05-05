@@ -24,14 +24,20 @@ const styles = (theme) => ({
 });
 
 class MenuList extends React.Component {
-	state = {
-		openCampus: false,
-		openCourses: false
-	};
+	constructor() {
+		super();
+		this.state = {
+			openCampus: false,
+			openCourses: false,
+			openCodeworks: false
+		};
+	}
 
 	handleClick = () => {
 		this.handleClick = (nav) => {
-			this.setState({ [nav + 'Open']: !this.state[nav + 'Open'] });
+			this.setState({
+				['open' + nav]: !this.state['open' + nav]
+			});
 		};
 	};
 
@@ -49,7 +55,7 @@ class MenuList extends React.Component {
 				<ListItem
 					button
 					onClick={() => {
-						this.handleClick('campus');
+						this.handleClick('Campus');
 					}}
 				>
 					<ListItemIcon />
@@ -100,14 +106,19 @@ class MenuList extends React.Component {
 						</ListItem>
 					</List>
 				</Collapse>
-				<ListItem button onClick={this.handleClick}>
+				<ListItem
+					button
+					onClick={() => {
+						this.handleClick('Courses');
+					}}
+				>
 					<ListItemIcon />
-					<Link component={RouterLink} to="/Courses">
+					<Link component={RouterLink} to="/courses">
 						<ListItemText inset primary="Courses" />
 					</Link>
-					{this.state.open ? <ExpandLess /> : <ExpandMore />}
+					{this.state.openCourses ? <ExpandLess /> : <ExpandMore />}
 				</ListItem>
-				<Collapse in={this.state.open} timeout="auto" unmountOnExit>
+				<Collapse in={this.state.openCourses} timeout="auto" unmountOnExit>
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
 							<ListItemIcon>
@@ -249,14 +260,20 @@ class MenuList extends React.Component {
 						</ListItem>
 					</List>
 				</Collapse>
-				<ListItem button onClick={this.handleClick}>
+
+				<ListItem
+					button
+					onClick={() => {
+						this.handleClick('Codeworks');
+					}}
+				>
 					<ListItemIcon />
 					<Link component={RouterLink} to="/codeworks">
-						<ListItemText inset primary="Codeworks Course" />
+						<ListItemText inset primary="Codeworks Programme" />
 					</Link>
-					{this.state.open ? <ExpandLess /> : <ExpandMore />}
+					{this.state.openCodeworks ? <ExpandLess /> : <ExpandMore />}
 				</ListItem>
-				<Collapse in={this.state.open} timeout="auto" unmountOnExit>
+				<Collapse in={this.state.openCodeworks} timeout="auto" unmountOnExit>
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
 							<ListItemIcon>
@@ -310,6 +327,8 @@ class MenuList extends React.Component {
 		);
 	}
 }
+
+debugger;
 
 MenuList.propTypes = {
 	classes: PropTypes.object.isRequired
