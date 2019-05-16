@@ -68,6 +68,7 @@ class NavBar extends React.Component {
 					<img
 						src="https://www.nedworks.net/wp-content/uploads/2018/01/Glasgow-Kelvin-College.jpg"
 						alt="Logo for Glasgow Kelvin College"
+						className="logoNav"
 					/>
 					<div className={classes.toolbar} />
 				</Link>

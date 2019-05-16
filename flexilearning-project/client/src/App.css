@@ -6,3 +6,16 @@
 body {
 	font-family: 'Roboto', sans-serif;
 }
+
+.logoNav {
+	width: 240px;
+	margin-top: 1rem;
+}
+
+.headerCard {
+	margin-left: 10rem;
+}
+
+.test {
+	margin: 20rem;
+}

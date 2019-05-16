@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Login from './components/Login';
 import About from './components/About';
 import Campus from './components/Campus';
+import SignIn from './components/SignIn';
+
 // import Courses from './components/Courses';
 // import Contact from './components/Contact';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
@@ -13,9 +14,12 @@ const routing = (
 	<Router>
 		<div>
 			<Route path="/" component={App} />
-			<Route path="/student-login" component={Login} />
+			<Route path="/student-login" component={SignIn} />
 			<Route path="/about-us" component={About} />
 			<Route path="/campus" component={Campus} />
+
+			{/* <Route path="/contact" component={Contac} /> */}
+			{/* <Route path="/courses" component={Courses} /> */}
 		</div>
 	</Router>
 );

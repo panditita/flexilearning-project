@@ -23,7 +23,7 @@ const styles = (theme) => ({
 	}
 });
 
-class MenuList extends React.Component {
+class StudentAcountMenu extends React.Component {
 	constructor() {
 		super();
 		this.state = {
@@ -41,14 +41,21 @@ class MenuList extends React.Component {
 		};
 	};
 
+	logOut(e) {
+		e.preventDefault();
+		localStorage.removeItem('usertoken'); //studenttoke?
+		this.props.history.push('/student-login');
+	}
+
 	render() {
 		const { classes } = this.props;
 
+		const studentLink = {};
 		return (
 			<List component="nav" className={classes.root}>
 				<ListItem button>
 					<ListItemIcon />
-					<Link component={RouterLink} to="/about-us">
+					<Link component={RouterLink} to="/logout">
 						<ListItemText inset primary="About Us" />
 					</Link>
 				</ListItem>
