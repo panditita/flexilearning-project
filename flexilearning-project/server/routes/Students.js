@@ -1,4 +1,5 @@
 const cors = require('cors');
+const router = require('express').Router();
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
@@ -7,6 +8,11 @@ const Student = require('../models/Student');
 const students = express.Router();
 students.use(cors());
 process.env.SECRET_KEY = 'secret';
+
+router.get('/student-login', (req, res) => {
+	const user = Student.find();
+	console.log(user);
+});
 
 students.post('/student-register', (req, res) => {
 	const today = new Date();
@@ -71,14 +77,14 @@ students.post('/student-login', (req, res) => {
 });
 
 students.get('/student-profile', (req, res) => {
-	const decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY);
+	//const decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY);
 
 	Student.findOne({
-		_id: decoded._id
+		email: req.body.email
 	})
 		.then((student) => {
 			if (student) {
-				res.json(student);
+				res.json('Welcome ' + student.firstName);
 			} else {
 				res.send("This student account doesn't exists");
 			}
