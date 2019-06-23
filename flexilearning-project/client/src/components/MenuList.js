@@ -29,7 +29,8 @@ class MenuList extends React.Component {
 		this.state = {
 			openCampus: false,
 			openCourses: false,
-			openCodeworks: false
+			openCodeworks: false,
+			openStudent: false
 		};
 	}
 
@@ -95,16 +96,6 @@ class MenuList extends React.Component {
 							</Link>
 						</ListItem>
 					</List>
-					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
-							<Link component={RouterLink} to="/west-end">
-								<ListItemText inset primary="West End" />
-							</Link>
-						</ListItem>
-					</List>
 				</Collapse>
 				<ListItem
 					button
@@ -124,8 +115,8 @@ class MenuList extends React.Component {
 							<ListItemIcon>
 								<StarBorder />
 							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-word">
-								<ListItemText inset primary="Introduction and Intermediate Word Processing" />
+							<Link component={RouterLink} to="/college-certification">
+								<ListItemText inset primary="College Certification" />
 							</Link>
 						</ListItem>
 					</List>
@@ -134,8 +125,8 @@ class MenuList extends React.Component {
 							<ListItemIcon>
 								<StarBorder />
 							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-spreadsheets">
-								<ListItemText inset primary="Introduction and Intermediate Spreadsheets" />
+							<Link component={RouterLink} to="/sqa-certification">
+								<ListItemText inset primary="SQA Certification" />
 							</Link>
 						</ListItem>
 					</List>
@@ -144,8 +135,8 @@ class MenuList extends React.Component {
 							<ListItemIcon>
 								<StarBorder />
 							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-presentation">
-								<ListItemText inset primary="Introduction and Intermediate Presentation Software" />
+							<Link component={RouterLink} to="/ecdl">
+								<ListItemText inset primary="European Computer Driving Licence " />
 							</Link>
 						</ListItem>
 					</List>
@@ -154,173 +145,36 @@ class MenuList extends React.Component {
 							<ListItemIcon>
 								<StarBorder />
 							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-databases">
-								<ListItemText inset primary="Introduction and Intermediate Database" />
-							</Link>
-						</ListItem>
-					</List>
-					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-email">
-								<ListItemText inset primary="Introduction and Intermediate Email" />
-							</Link>
-						</ListItem>
-					</List>
-					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-file">
-								<ListItemText inset primary="Introduction to File Management" />
-							</Link>
-						</ListItem>
-					</List>
-					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-mobileApps">
-								<ListItemText inset primary="Introduction and Intermediate Mobile App Development" />
-							</Link>
-						</ListItem>
-					</List>
-					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-office365">
-								<ListItemText inset primary="Introduction to Office 365 Web Apps" />
-							</Link>
-						</ListItem>
-					</List>
-					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-coding">
-								<ListItemText inset primary="Introduction to Coding" />
-							</Link>
-						</ListItem>
-					</List>
-					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-cybersec">
-								<ListItemText inset primary="Introduction to Cyber Security" />
-							</Link>
-						</ListItem>
-					</List>
-					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-webdev">
-								<ListItemText inset primary="Introduction to Web Development" />
-							</Link>
-						</ListItem>
-					</List>
-					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-internet">
-								<ListItemText inset primary="Introduction to the Internet of Things" />
-							</Link>
-						</ListItem>
-					</List>
-					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-digmarket">
-								<ListItemText inset primary="Introduction to Digital Marketing" />
-							</Link>
-						</ListItem>
-					</List>
-					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-digmarket">
-								<ListItemText inset primary="Introduction to Digital Marketing" />
+							<Link component={RouterLink} to="/codeworks">
+								<ListItemText inset primary="Codeworks Programme" />
 							</Link>
 						</ListItem>
 					</List>
 				</Collapse>
-
 				<ListItem
 					button
 					onClick={() => {
-						this.handleClick('Codeworks');
+						this.handleClick('Student');
 					}}
 				>
 					<ListItemIcon />
-					<Link component={RouterLink} to="/codeworks">
-						<ListItemText inset primary="Codeworks Programme" />
+					<Link component={RouterLink} to="/student-login">
+						<ListItemText inset primary="Student Account" />
 					</Link>
-					{this.state.openCodeworks ? <ExpandLess /> : <ExpandMore />}
+					{this.state.openStudent ? <ExpandLess /> : <ExpandMore />}
 				</ListItem>
-				<Collapse in={this.state.openCodeworks} timeout="auto" unmountOnExit>
+				<Collapse in={this.state.openStudent} timeout="auto" unmountOnExit>
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
 							<ListItemIcon>
 								<StarBorder />
 							</ListItemIcon>
-							<Link component={RouterLink} to="/intro-codeworks">
-								<ListItemText inset primary="Getting Started with Codeworks" />
-							</Link>
-						</ListItem>
-					</List>
-					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
-							<Link component={RouterLink} to="/codeworks-digital">
-								<ListItemText inset primary="Codeworks Digital " />
-							</Link>
-						</ListItem>
-					</List>
-					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
-							<Link component={RouterLink} to="/codeworks-dev">
-								<ListItemText inset primary="Codeworks Developer" />
-							</Link>
-						</ListItem>
-					</List>
-					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
-							<Link component={RouterLink} to="/codeworks-pro">
-								<ListItemText inset primary="Codeworks Pro" />
+							<Link component={RouterLink} to="/student-register">
+								<ListItemText inset primary="Register" />
 							</Link>
 						</ListItem>
 					</List>
 				</Collapse>
-				<ListItem button>
-					<ListItemIcon />
-					<Link component={RouterLink} to="/student-login">
-						<ListItemText inset primary="Student Login" />
-					</Link>
-				</ListItem>
 				<ListItem button>
 					<ListItemIcon />
 					<Link component={RouterLink} to="/contact">
@@ -331,8 +185,6 @@ class MenuList extends React.Component {
 		);
 	}
 }
-
-debugger;
 
 MenuList.propTypes = {
 	classes: PropTypes.object.isRequired

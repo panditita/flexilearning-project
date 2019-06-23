@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AboutCarousel from './aboutCarousel';
 
 class About extends Component {
 	render() {
@@ -34,6 +35,7 @@ class About extends Component {
 					through its work-based community learning and development programmes: HNC Working with Communities,
 					NC Introduction to Community Development and the Professional Development Award in Youth Work.
 				</p>
+				<AboutCarousel />
 			</div>
 		);
 	}

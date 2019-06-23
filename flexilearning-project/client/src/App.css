@@ -1,6 +1,9 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 .main-container {
-	padding-left: 20rem;
-	padding-top: 2rem;
+	padding: 2rem;
+	text-align: justify;
 }
 
 body {
@@ -18,4 +21,45 @@ body {
 
 .test {
 	margin: 20rem;
+}
+#root {
+	margin-left: 15rem;
+}
+
+main {
+	width: 50%;
+}
+
+img {
+	width: 45%;
+	height: auto;
+}
+.homeText {
+	text-align: center;
+	line-height: 20px;
+}
+h1.homeText {
+	margin-top: 2rem;
+}
+.home-carousel {
+	width: 70%;
+	height: auto;
+}
+.slick-slide img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.slick-dots {
+	position: initial;
+	padding: 0;
+	margin-top: -2rem;
+}
+.MuiListItemIcon-root-166 {
+	margin-right: -45px;
+}
+
+.campus-container {
+	width: auto;
+	height: auto;
 }

@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
 
 const styles = (theme) => ({
 	main: {
@@ -58,7 +60,7 @@ class SignIn extends React.Component {
 					<Typography component="h1" variant="h5">
 						Sign in
 					</Typography>
-					<form className={classes.form}>
+					<form className={classes.form} action="StudentLogin.js" method="post">
 						<FormControl margin="normal" required fullWidth>
 							<InputLabel htmlFor="email">Email Address</InputLabel>
 							<Input id="email" name="email" autoComplete="email" autoFocus />
@@ -71,6 +73,13 @@ class SignIn extends React.Component {
 						<Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
 							Sign in
 						</Button>
+						<Typography>
+							Not register yet?, create an account{' '}
+							<Link component={RouterLink} to="/student-register">
+								{' '}
+								here{' '}
+							</Link>
+						</Typography>
 					</form>
 				</Paper>
 			</main>

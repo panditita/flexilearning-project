@@ -17,13 +17,13 @@
 	},
 	"homepage": "https://github.com/panditita/flexilearning-project#readme",
 	"dependencies": {
-		"bcrypt": "3.0.6",
+		"bcrypt": "^3.0.6",
 		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
-		"express": "^4.16.4",
-		"jsonwebtoken": "^7.4.2",
-		"mongodb": "^3.1.6",
-		"mongoose": "^5.5.8",
-		"nodemon": "^1.18.3"
+		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1",
+		"mongodb": "^3.2.7",
+		"mongoose": "^5.5.12",
+		"nodemon": "^1.19.1"
 	}
 }

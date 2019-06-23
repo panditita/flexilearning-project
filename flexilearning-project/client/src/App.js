@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import NavBar from './components/NavBar';
-import './App.css';
-import { Link, Route, Switch } from 'react-router-dom';
-import SignIn from './components/SignIn';
+import HomeCarousel from './components/HomeCarousel';
 
 class App extends Component {
 	render() {
 		return (
-			<div className="app-container">
-				<NavBar />
+			<div>
+				<h1 className="homeText">COMMUNITY LEARNING</h1>
+				<p className="homeText">
+					The Glasgow Kelvin College ethos includes commitments to decentralisation and outreach and improving
+					outreach and equality of opportunity.{' '}
+				</p>
+				<HomeCarousel />
 			</div>
 		);
 	}

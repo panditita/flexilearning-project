@@ -64,11 +64,12 @@ students.post('/student-login', (req, res) => {
 						expiresIn: 1440
 					});
 					res.send(token);
+					return res.redirect('/student-profile');
 				} else {
-					res.json({ error: "This student account doesn't exists" });
+					res.json({ error: 'Check the information you provided!' });
 				}
 			} else {
-				res.json({ error: "This student account doesn't exists" });
+				res.json({ error: "This student account doesn't exist" });
 			}
 		})
 		.catch((err) => {
@@ -77,10 +78,10 @@ students.post('/student-login', (req, res) => {
 });
 
 students.get('/student-profile', (req, res) => {
-	//const decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY);
+	var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY);
 
 	Student.findOne({
-		email: req.body.email
+		_id: decoded._id
 	})
 		.then((student) => {
 			if (student) {

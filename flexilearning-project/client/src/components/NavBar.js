@@ -8,6 +8,9 @@ import { withStyles } from '@material-ui/core/styles';
 import MenuList from './MenuList';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
 
 const drawerWidth = 240;
 
@@ -24,18 +27,20 @@ const styles = (theme) => ({
 	appBar: {
 		marginLeft: drawerWidth,
 		[theme.breakpoints.up('sm')]: {
-			width: `calc(100% - ${drawerWidth}px)`
-		}
+			width: `calc(50% - ${drawerWidth}px)`
+		},
+		backgroundColor: 'transparent',
+		boxShadow: 'none'
 	},
 	menuButton: {
-		marginRight: 20,
-		[theme.breakpoints.up('sm')]: {
-			display: 'none'
-		}
+		marginRight: 20
 	},
 	toolbar: theme.mixins.toolbar,
 	drawerPaper: {
 		width: drawerWidth
+	},
+	Typography: {
+		fontSize: 16
 	},
 	content: {
 		flexGrow: 1,
@@ -81,6 +86,18 @@ class NavBar extends React.Component {
 		return (
 			<div className={classes.root}>
 				<CssBaseline />
+				<AppBar position="fixed" className={classes.appBar}>
+					<Toolbar>
+						<Button color="black" className={classes.menuButton}>
+							{' '}
+							Student Login{' '}
+						</Button>
+						<Button color="black" className={classes.menuButton}>
+							{' '}
+							Register{' '}
+						</Button>
+					</Toolbar>
+				</AppBar>
 				<nav className={classes.drawer}>
 					{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
 					<Hidden smUp implementation="css">
