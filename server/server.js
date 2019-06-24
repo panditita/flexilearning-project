@@ -13,7 +13,7 @@ app.use(bodyParser.json(), cors()),
 		})
 	);
 
-const MONGODB_URI = 'mongodb://localhost:27017/flexilearning';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/flexilearning';
 
 mongoose
 	.connect(MONGODB_URI, { useNewUrlParser: true })
@@ -21,6 +21,16 @@ mongoose
 	.catch((err) => console.log(err));
 
 const Students = require('./routes/Students');
+
+// In development environemnt, we use the create-react-app dev server
+// In production, the static build is served from here
+if (process.env.NODE_ENV !== 'development') {
+	//TODO: Update/Check the paths
+	app.use('/', express.static(path.resolve(__dirname, '../client/build')));
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+	});
+}
 
 app.use('/students', Students);
 app.listen(port, () => {
