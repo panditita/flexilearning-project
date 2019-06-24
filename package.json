@@ -4,6 +4,7 @@
 	"description": "App for the Fleaxilearning Centres of Glasgow Kelvin College",
 	"main": "index.js",
 	"scripts": {
+		"install": "npm --prefix server install & npm --prefix client install",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"server": "npm --prefix server start",
 		"start": "npm run server",
