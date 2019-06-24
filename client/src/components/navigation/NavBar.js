@@ -60,7 +60,7 @@ class NavBar extends React.Component {
 	};
 
 	componentDidMount() {
-		document.querySelector('.NavBar-toolbar-5').style.display = 'none';
+		// document.querySelector('.NavBar-toolbar-5').style.display = 'none';
 	}
 
 	changeOnClickState(nav) {
