@@ -1,21 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import About from './components/About';
-import Campus from './components/Campus';
-import SignIn from './components/SignIn';
-import NavBar from './components/NavBar';
-
-// import Courses from './components/Courses';
-// import Contact from './components/Contact';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import * as serviceWorker from './serviceWorker';
-import StudentProfile from './components/StudentProfile';
-import Springburn from './components/Springburn';
+import App from './App';
+import About from './components/about/About';
+import Campus from './components/campus/Campus';
+import SignIn from './components/signin/SignIn';
+import NavBar from './components/navigation/NavBar';
+import Courses from './components/courses/Courses';
 import Contact from './components/Contact';
+import StudentProfile from './components/signin/StudentProfile';
+import Springburn from './components/campus/Springburn';
+import EastEnd from './components/campus/EastEnd';
+import EasterHouse from './components/campus/EasterHouse';
+import CollegeCertification from './components/courses/CollegeCertification';
+import Sqa from './components/courses/Sqa';
+import Ecdl from './components/courses/Ecdl';
+import Codeworks from './components/courses/Codeworks';
+import Register from './components/register/Register';
+import * as serviceWorker from './serviceWorker';
+
 import './App.css';
-import EastEnd from './components/EastEnd';
-import EasterHouse from './components/EasterHouse';
 
 const routing = (
 	<Router>
@@ -30,9 +34,13 @@ const routing = (
 				<Route path="/springburn" component={Springburn} />
 				<Route path="/east-end" component={EastEnd} />
 				<Route path="/easter-house" component={EasterHouse} />
-
-				{/* <Route path="/contact" component={Contact} /> */}
-				{/* <Route path="/courses" component={Courses} /> */}
+				<Route path="/courses" component={Courses} />
+				<Route path="/college-certification" component={CollegeCertification} />
+				<Route path="/sqa-certification" component={Sqa} />
+				<Route path="/ecdl" component={Ecdl} />
+				<Route path="/codeworks" component={Codeworks} />
+				<Route path="/student-register" component={Register} />
+				<Route path="/contact" component={Contact} />
 			</div>
 		</div>
 	</Router>

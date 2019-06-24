@@ -33,7 +33,8 @@ const styles = (theme) => ({
 		boxShadow: 'none'
 	},
 	menuButton: {
-		marginRight: 20
+		marginRight: 20,
+		color: 'black'
 	},
 	toolbar: theme.mixins.toolbar,
 	drawerPaper: {
@@ -82,20 +83,23 @@ class NavBar extends React.Component {
 				</List>
 			</div>
 		);
-
 		return (
 			<div className={classes.root}>
 				<CssBaseline />
 				<AppBar position="fixed" className={classes.appBar}>
 					<Toolbar>
-						<Button color="black" className={classes.menuButton}>
-							{' '}
-							Student Login{' '}
-						</Button>
-						<Button color="black" className={classes.menuButton}>
-							{' '}
-							Register{' '}
-						</Button>
+						<Link component={RouterLink} to="/student-login">
+							<Button color="primary" className={classes.menuButton}>
+								{' '}
+								Student Login {' '}
+							</Button>
+						</Link>
+						<Link component={RouterLink} to="/student-register">
+							<Button color="primary" className={classes.menuButton}>
+								{' '}
+								Register {' '}
+							</Button>
+						</Link>
 					</Toolbar>
 				</AppBar>
 				<nav className={classes.drawer}>

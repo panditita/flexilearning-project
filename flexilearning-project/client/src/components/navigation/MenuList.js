@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 
@@ -19,7 +17,7 @@ const styles = (theme) => ({
 		backgroundColor: theme.palette.background.paper
 	},
 	nested: {
-		paddingLeft: theme.spacing.unit * 4
+		paddingLeft: theme.spacing.unit * 6
 	}
 });
 
@@ -48,7 +46,6 @@ class MenuList extends React.Component {
 		return (
 			<List component="nav" className={classes.root}>
 				<ListItem button>
-					<ListItemIcon />
 					<Link component={RouterLink} to="/about-us">
 						<ListItemText inset primary="About Us" />
 					</Link>
@@ -59,7 +56,6 @@ class MenuList extends React.Component {
 						this.handleClick('Campus');
 					}}
 				>
-					<ListItemIcon />
 					<Link component={RouterLink} to="/campus">
 						<ListItemText inset primary="Campus" />
 					</Link>
@@ -68,9 +64,6 @@ class MenuList extends React.Component {
 				<Collapse in={this.state.openCampus} timeout="auto" unmountOnExit>
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
 							<Link component={RouterLink} to="/springburn">
 								<ListItemText inset primary="Springburn" />
 							</Link>
@@ -78,9 +71,6 @@ class MenuList extends React.Component {
 					</List>
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
 							<Link component={RouterLink} to="/east-end">
 								<ListItemText inset primary="East End" />
 							</Link>
@@ -88,9 +78,6 @@ class MenuList extends React.Component {
 					</List>
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
 							<Link component={RouterLink} to="/easter-house">
 								<ListItemText inset primary="Easter House" />
 							</Link>
@@ -103,7 +90,6 @@ class MenuList extends React.Component {
 						this.handleClick('Courses');
 					}}
 				>
-					<ListItemIcon />
 					<Link component={RouterLink} to="/courses">
 						<ListItemText inset primary="Courses" />
 					</Link>
@@ -112,9 +98,6 @@ class MenuList extends React.Component {
 				<Collapse in={this.state.openCourses} timeout="auto" unmountOnExit>
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
 							<Link component={RouterLink} to="/college-certification">
 								<ListItemText inset primary="College Certification" />
 							</Link>
@@ -122,9 +105,6 @@ class MenuList extends React.Component {
 					</List>
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
 							<Link component={RouterLink} to="/sqa-certification">
 								<ListItemText inset primary="SQA Certification" />
 							</Link>
@@ -132,9 +112,6 @@ class MenuList extends React.Component {
 					</List>
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
 							<Link component={RouterLink} to="/ecdl">
 								<ListItemText inset primary="European Computer Driving Licence " />
 							</Link>
@@ -142,9 +119,6 @@ class MenuList extends React.Component {
 					</List>
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
 							<Link component={RouterLink} to="/codeworks">
 								<ListItemText inset primary="Codeworks Programme" />
 							</Link>
@@ -157,7 +131,6 @@ class MenuList extends React.Component {
 						this.handleClick('Student');
 					}}
 				>
-					<ListItemIcon />
 					<Link component={RouterLink} to="/student-login">
 						<ListItemText inset primary="Student Account" />
 					</Link>
@@ -166,9 +139,6 @@ class MenuList extends React.Component {
 				<Collapse in={this.state.openStudent} timeout="auto" unmountOnExit>
 					<List component="div" disablePadding>
 						<ListItem button className={classes.nested}>
-							<ListItemIcon>
-								<StarBorder />
-							</ListItemIcon>
 							<Link component={RouterLink} to="/student-register">
 								<ListItemText inset primary="Register" />
 							</Link>
@@ -176,7 +146,6 @@ class MenuList extends React.Component {
 					</List>
 				</Collapse>
 				<ListItem button>
-					<ListItemIcon />
 					<Link component={RouterLink} to="/contact">
 						<ListItemText inset primary="Contact" />
 					</Link>

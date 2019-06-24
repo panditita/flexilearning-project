@@ -60,7 +60,7 @@ class CampusCard extends React.Component {
 					</Card>
 				</Link>
 				<Link component={RouterLink} to="/easter-house">
-					<Card className={classes.cardTwo}>
+					<Card className={classes.cardThree}>
 						<CardContent>
 							<Typography gutterBottom variant="h5" component="h2" className={classes.textCampus}>
 								EASTER HOUSE CAMPUS

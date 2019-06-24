@@ -42,7 +42,7 @@ const styles = (theme) => ({
 		width: '100%', // Fix IE 11 issue.
 		marginTop: theme.spacing.unit
 	},
-	submit: {
+	button: {
 		marginTop: theme.spacing.unit * 3
 	}
 });
@@ -70,7 +70,7 @@ class SignIn extends React.Component {
 							<Input name="password" type="password" id="password" autoComplete="current-password" />
 						</FormControl>
 						<FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
-						<Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+						<Button type="submit" fullWidth variant="contained" color="primary" className={classes.button}>
 							Sign in
 						</Button>
 						<Typography>

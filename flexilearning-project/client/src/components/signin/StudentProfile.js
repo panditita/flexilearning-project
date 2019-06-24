@@ -32,41 +32,43 @@ function LinkTab(props) {
 		/>
 	);
 }
+/* function handleChange(event, newValue) {
+	setValue(newValue);
+} */
 
-const theme = createMuiTheme(() => ({
+function logOut(e) {
+	e.preventDefault();
+	localStorage.removeItem('studenttoken'); //studenttoke?
+	this.props.history.push('/student-login');
+}
+
+const styles = (theme) => ({
 	root: {
 		flexGrow: 1,
 		backgroundColor: theme.palette.background.paper
 	}
-}));
+});
 
-function NavTabs() {
-	const classes = theme;
-	const [ value, setValue ] = React.useState(0);
+class NavTabs extends React.Component {
+	render() {
+		const { classes } = this.props;
+		//const [ value, setValue ] = React.useState(0);
 
-	function handleChange(event, newValue) {
-		setValue(newValue);
+		return (
+			<ThemeProvider className={classes.theme}>
+				<div className={classes.root}>
+					<AppBar position="static">
+						<Tabs variant="fullWidth">
+							{/* value={value} onChange={handleChange} */}
+							<LinkTab label="My Profile" href="/student-profile" />
+							<a href="" onClick={this.logOut.bind()} label="Log out" href="/student-logout" />
+						</Tabs>
+					</AppBar>
+					{/* {value === 0 && <TabContainer>Student Profile</TabContainer>} */}
+				</div>
+			</ThemeProvider>
+		);
 	}
-
-	function logOut(e) {
-		e.preventDefault();
-		localStorage.removeItem('studenttoken'); //studenttoke?
-		this.props.history.push('/student-login');
-	}
-
-	return (
-		<ThemeProvider theme={theme}>
-			<div className={classes.root}>
-				<AppBar position="static">
-					<Tabs variant="fullWidth" value={value} onChange={handleChange}>
-						<LinkTab label="My Profile" href="/student-profile" />
-						<a href="" onClick={this.logOut.bind()} label="Log out" href="/student-logout" />
-					</Tabs>
-				</AppBar>
-				{value === 0 && <TabContainer>Student Profile</TabContainer>}
-			</div>
-		</ThemeProvider>
-	);
 }
 
 export default NavTabs;
