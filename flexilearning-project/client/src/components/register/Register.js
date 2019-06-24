@@ -2,12 +2,8 @@ import React from 'react';
 import { Form, Field } from 'react-final-form';
 import TextField from '@material-ui/core/TextField';
 import { Typography, Paper, Grid, Button, CssBaseline } from '@material-ui/core';
+import { register } from '../signin/StudentFunctions';
 
-const onSubmit = async (values) => {
-	const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-	await sleep(300);
-	window.alert(JSON.stringify(values, 0, 2));
-};
 const validate = (values) => {
 	const errors = {};
 	if (!values.firstName) {
@@ -26,6 +22,36 @@ const validate = (values) => {
 };
 
 class Register extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			firstName: '',
+			lastName: '',
+			email: '',
+			password: ''
+		};
+		this.onChange = this.onChange.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
+	}
+
+	onChange(e) {
+		this.setState({ [e.target.name]: e.target.value });
+	}
+
+	onSubmit(e) {
+		e.preventDefault();
+
+		const student = {
+			firstName: this.state.firstName,
+			lastName: this.state.lastName,
+			email: this.state.email,
+			password: this.state.password
+		};
+
+		register(student).then((res) => {
+			this.props.history.push('/student-login');
+		});
+	}
 	render() {
 		return (
 			<div style={{ padding: 16, margin: 'auto', maxWidth: 600 }}>
@@ -34,10 +60,10 @@ class Register extends React.Component {
 					Register{' '}
 				</Typography>
 				<Form
-					onSubmit={onSubmit}
+					onSubmit={this.onSubmit}
 					validate={validate}
 					render={({ handleSubmit, reset, submitting, pristine, values }) => (
-						<form onSubmit={handleSubmit} noValidate>
+						<form onSubmit={this.onSubmit} noValidate>
 							<Paper style={{ padding: 16 }}>
 								<Grid container style={{ height: '60vh' }} alignItems="flex-start" spacing={8}>
 									<Grid item xs={6}>
@@ -48,6 +74,8 @@ class Register extends React.Component {
 											component={TextField}
 											type="text"
 											label="First Name"
+											value={this.state.firstName}
+											onChange={this.onChange}
 										/>
 									</Grid>
 									<Grid item xs={6}>
@@ -58,6 +86,8 @@ class Register extends React.Component {
 											component={TextField}
 											type="text"
 											label="Last Name"
+											value={this.state.lastName}
+											onChange={this.onChange}
 										/>
 									</Grid>
 									<Grid item xs={12}>
@@ -68,6 +98,8 @@ class Register extends React.Component {
 											component={TextField}
 											type="email"
 											label="Email"
+											value={this.state.email}
+											onChange={this.onChange}
 										/>
 									</Grid>
 									<Grid item xs={12}>
@@ -78,6 +110,8 @@ class Register extends React.Component {
 											label="Password"
 											type="password"
 											component={TextField}
+											value={this.state.password}
+											onChange={this.onChange}
 										/>
 									</Grid>
 									<Grid item style={{ margin: '16px auto' }}>

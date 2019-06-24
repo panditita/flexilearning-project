@@ -57,7 +57,7 @@ class Sqa extends React.Component {
 					</Typography>
 					<Typography paragraph>
 						You can find more information about the{' '}
-						<a href="https://www.sqa.org.uk/" target="_blank">
+						<a href="https://www.sqa.org.uk/" target="_blank" rel="noopener noreferrer">
 							{' '}
 							SQA{' '}
 						</a>{' '}

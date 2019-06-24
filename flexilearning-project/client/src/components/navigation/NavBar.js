@@ -11,6 +11,7 @@ import Link from '@material-ui/core/Link';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
+import StudentSubmenu from './StudentSubmenu';
 
 const drawerWidth = 240;
 
@@ -88,18 +89,7 @@ class NavBar extends React.Component {
 				<CssBaseline />
 				<AppBar position="fixed" className={classes.appBar}>
 					<Toolbar>
-						<Link component={RouterLink} to="/student-login">
-							<Button color="primary" className={classes.menuButton}>
-								{' '}
-								Student Login {' '}
-							</Button>
-						</Link>
-						<Link component={RouterLink} to="/student-register">
-							<Button color="primary" className={classes.menuButton}>
-								{' '}
-								Register {' '}
-							</Button>
-						</Link>
+						<StudentSubmenu />
 					</Toolbar>
 				</AppBar>
 				<nav className={classes.drawer}>

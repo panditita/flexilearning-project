@@ -13,7 +13,7 @@ body {
 
 .logoNav {
 	width: 240px;
-	margin-top: 1rem;
+	margin: auto;
 }
 
 .headerCard {
@@ -40,7 +40,7 @@ img {
 	line-height: 20px;
 }
 h1.homeText {
-	margin-top: 2rem;
+	margin-top: 3rem;
 }
 .home-carousel {
 	width: 70%;
@@ -63,4 +63,41 @@ h1.homeText {
 .campus-container {
 	width: auto;
 	height: auto;
+}
+
+.MuiSvgIcon-root-172 {
+	margin-left: -1rem;
+}
+
+.MenuList-root-154 {
+	background-color: #f8b018 !important;
+	color: #483b6e !important;
+}
+.MuiDrawer-paperAnchorDockedLeft-145 {
+	background-color: #f8b018 !important;
+}
+
+.MuiTypography-subheading-94 {
+	color: #483b6e !important;
+	font-weight: bold !important;
+	font-size: 1.15rem !important;
+}
+
+.MuiListItemText-root-168 {
+	padding: 0 !important;
+}
+
+.appBar {
+	margin-left: 240;
+	background-color: transparent !important;
+	box-shadow: none !important;
+}
+
+.menuButton {
+	margin-right: 20;
+	color: black;
+}
+.MuiToolbar-root-45.MuiToolbar-regular-47 {
+	display: flex !important;
+	align-self: flex-end !important;
 }

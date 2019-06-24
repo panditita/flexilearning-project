@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
+import { login } from './StudentFunctions';
 
 const styles = (theme) => ({
 	main: {
@@ -35,8 +36,7 @@ const styles = (theme) => ({
 		padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`
 	},
 	avatar: {
-		margin: theme.spacing.unit,
-		backgroundColor: theme.palette.secondary.main
+		margin: theme.spacing.unit
 	},
 	form: {
 		width: '100%', // Fix IE 11 issue.
@@ -47,7 +47,36 @@ const styles = (theme) => ({
 	}
 });
 
-class SignIn extends React.Component {
+class Login extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			email: '',
+			password: ''
+		};
+		this.onChange = this.onChange.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
+	}
+
+	onChange(e) {
+		this.setState({ [e.target.name]: e.target.value });
+	}
+
+	onSubmit(e) {
+		e.preventDefault();
+
+		const student = {
+			email: this.state.email,
+			password: this.state.password
+		};
+
+		login(student).then((res) => {
+			if (res) {
+				this.props.history.push('/student-profile');
+			}
+		});
+	}
+
 	render() {
 		const { classes } = this.props;
 		return (
@@ -60,17 +89,31 @@ class SignIn extends React.Component {
 					<Typography component="h1" variant="h5">
 						Sign in
 					</Typography>
-					<form className={classes.form} action="StudentLogin.js" method="post">
+					<form className={classes.form} onSubmit={this.onSubmit}>
 						<FormControl margin="normal" required fullWidth>
 							<InputLabel htmlFor="email">Email Address</InputLabel>
-							<Input id="email" name="email" autoComplete="email" autoFocus />
+							<Input
+								id="email"
+								name="email"
+								autoComplete="email"
+								autoFocus
+								value={this.state.email}
+								onChange={this.onChange}
+							/>
 						</FormControl>
 						<FormControl margin="normal" required fullWidth>
 							<InputLabel htmlFor="password">Password</InputLabel>
-							<Input name="password" type="password" id="password" autoComplete="current-password" />
+							<Input
+								name="password"
+								type="password"
+								id="password"
+								autoComplete="current-password"
+								value={this.state.password}
+								onChange={this.onChange}
+							/>
 						</FormControl>
-						<FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
-						<Button type="submit" fullWidth variant="contained" color="primary" className={classes.button}>
+						<FormControlLabel control={<Checkbox value="remember" />} label="Remember me" />
+						<Button type="submit" fullWidth variant="contained" className={classes.button}>
 							Sign in
 						</Button>
 						<Typography>
@@ -87,8 +130,8 @@ class SignIn extends React.Component {
 	}
 }
 
-SignIn.propTypes = {
+Login.propTypes = {
 	classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(SignIn);
+export default withStyles(styles)(Login);

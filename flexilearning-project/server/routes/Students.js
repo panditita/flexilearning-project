@@ -60,10 +60,10 @@ students.post('/student-login', (req, res) => {
 						lastName: student.lastName,
 						email: student.email
 					};
-					let token = jwt.sign(payload, process.env.SECRET_KEY, {
+					let studentToken = jwt.sign(payload, process.env.SECRET_KEY, {
 						expiresIn: 1440
 					});
-					res.send(token);
+					res.send(studentToken);
 					return res.redirect('/student-profile');
 				} else {
 					res.json({ error: 'Check the information you provided!' });

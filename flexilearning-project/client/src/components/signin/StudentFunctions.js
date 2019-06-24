@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const register = (newStudent) => {
 	return axios
-		.post('students/student-register', {
+		.post('/student-register', {
 			firstName: newStudent.firstName,
 			lastName: newStudent.lastName,
 			email: newStudent.email,
@@ -13,14 +13,14 @@ export const register = (newStudent) => {
 		});
 };
 
-export const login = (user) => {
+export const login = (student) => {
 	return axios
-		.post('students/student-login', {
-			email: newStudent.email,
-			password: newStudent.password
+		.post('/student-login', {
+			email: student.email,
+			password: student.password
 		})
 		.then((res) => {
-			localStorag.setItem('studenttoken', res.data);
+			localStorage.setItem('studentToken', res.data);
 			return res.data;
 		})
 		.catch((err) => {

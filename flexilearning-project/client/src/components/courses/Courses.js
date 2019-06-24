@@ -14,7 +14,8 @@ const styles = (theme) => ({
 		marginTop: '1rem'
 	},
 	centreCard: {
-		padding: '1rem'
+		padding: '1rem',
+		margin: 'auto'
 	},
 	card: {
 		width: '33vw',

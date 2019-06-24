@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import App from './App';
 import About from './components/about/About';
 import Campus from './components/campus/Campus';
-import SignIn from './components/signin/SignIn';
+import Login from './components/signin/Login';
 import NavBar from './components/navigation/NavBar';
 import Courses from './components/courses/Courses';
 import Contact from './components/Contact';
@@ -24,10 +24,10 @@ import './App.css';
 const routing = (
 	<Router>
 		<div className="main-container">
+			<NavBar />
+			<Route exact path="/" component={App} />
 			<div className="app-container">
-				<NavBar />
-				<Route exact path="/" component={App} />
-				<Route path="/student-login" component={SignIn} />
+				<Route path="/student-login" component={Login} />
 				<Route path="/about-us" component={About} />
 				<Route path="/campus" component={Campus} />
 				<Route path="/student-profile" component={StudentProfile} />
