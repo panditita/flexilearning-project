@@ -63,7 +63,7 @@ class Register extends React.Component {
 					onSubmit={this.onSubmit}
 					validate={validate}
 					render={({ reset, submitting, pristine }) => (
-						<form noValidate>
+						<form onSubmit={this.onSubmit} noValidate>
 							<Paper style={{ padding: 16 }}>
 								<Grid container style={{ height: '60vh' }} alignItems="flex-start" spacing={8}>
 									<Grid item xs={6}>
