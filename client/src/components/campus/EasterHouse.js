@@ -61,5 +61,5 @@ class EasterHouse extends Component {
 }
 
 export default GoogleApiWrapper({
-	apiKey: 'AIzaSyAnxb_25UGxroEPdQ3lt8NIHIqvIGqiq0M'
+	apiKey: process.env.REACT_APP_GOOGLE_API_KEY || 'AIzaSyAnxb_25UGxroEPdQ3lt8NIHIqvIGqiq0M'
 })(EasterHouse);
