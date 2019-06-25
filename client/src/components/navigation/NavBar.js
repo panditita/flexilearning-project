@@ -10,8 +10,13 @@ import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
 import StudentSubmenu from './StudentSubmenu';
+import IconButton from '@material-ui/core/IconButton';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import Divider from '@material-ui/core/Divider';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 
 const drawerWidth = 240;
 
@@ -52,17 +57,16 @@ const styles = (theme) => ({
 
 class NavBar extends React.Component {
 	state = {
-		mobileOpen: false
+		openNav: false
 	};
 
-	handleDrawerToggle = () => {
-		this.setState((state) => ({ mobileOpen: !state.mobileOpen }));
+	handleDrawerOpen = () => {
+		this.handleClick = (nav) => {
+			this.setState({
+				['open' + nav]: !this.state['open' + nav]
+			});
+		};
 	};
-
-	componentDidMount() {
-		// document.querySelector('.NavBar-toolbar-5').style.display = 'none';
-	}
-
 	changeOnClickState(nav) {
 		this.setState({ handleClick: !this.state.handleClick });
 	}
@@ -97,14 +101,24 @@ class NavBar extends React.Component {
 					<Hidden smUp implementation="css">
 						<Drawer
 							container={this.props.container}
-							variant="temporary"
-							anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-							open={this.state.mobileOpen}
-							onClose={this.handleDrawerToggle}
+							variant="persistent"
+							anchor="left"
+							open={this.state.open}
 							classes={{
 								paper: classes.drawerPaper
 							}}
 						>
+							<div className={classes.drawerHeader}>
+								<IconButton
+									onClick={() => {
+										this.handleClick('Nav');
+									}}
+								>
+									{theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+									{this.state.open ? <ExpandLess /> : <ExpandMore />}
+								</IconButton>
+							</div>
+							<Divider />
 							{drawer}
 						</Drawer>
 					</Hidden>
